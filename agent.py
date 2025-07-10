@@ -34,7 +34,7 @@ class NN(nn.Module):
             nn.Linear(hidden_dim, action_dim),
             nn.Sigmoid()
         )
-        self.v_fun = nn.Linear(hidden_dim, action_dim)
+        self.v_fun = nn.Linear(hidden_dim, 1)
 
         self.seq_layer.apply(self.init_weight)
         self.mu.apply(self.init_weight)
@@ -52,7 +52,7 @@ class NN(nn.Module):
 
     def init_weight(self, layer) -> None:
         """
-        Initiaye start weight values of layer
+        Initiate start weight values of layer
 
         Args:
             layer: layer of NN
